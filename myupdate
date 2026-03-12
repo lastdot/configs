@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+# $HOME/bin
+
+clear
+sudo dnf upgrade --refresh 
+echo
+read -r -p 'Press Enter to continue'
+
+clear
+dnf needs-restarting
+echo
+read -r -p 'Do you want to reboot? (y/N) '
+[[ $REPLY == y ]] && reboot
+echo
+read -r -p 'Press Enter to continue'
+
+clear
+flatpak list --verbose
+echo
+read -r -p 'Press Enter to continue'
+
+clear
+fwupdmgr refresh
+echo
+fwupdmgr update
+echo
+
+read -r -p 'End of updates!'
+

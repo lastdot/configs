@@ -1,0 +1,19 @@
+# $HOME/.bashrc.d/
+
+journalctl --list-boots --lines 2 --quiet
+echo
+upower --show-info /org/freedesktop/UPower/devices/battery_BAT0 | grep -i -e state -e enabled
+echo
+acpi --ac-adapter
+echo
+firewall-cmd --get-default-zone
+echo
+rfkill --noheadings --output TYPE,SOFT list bluetooth
+echo
+arp-scan --localnet --plain
+echo
+#read -r -p 'Do you want to update the system? (y/N) '
+#[[ $REPLY == y ]] && tmux new-session myupdate
+read -r -p 'Press Enter to continue '
+tmux new-session myupdate
+
