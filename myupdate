@@ -3,15 +3,22 @@
 # $HOME/bin
 
 clear
-sudo dnf upgrade --refresh 
+#sudo dnf upgrade --refresh 
+#[[ ! sudo dnf upgrade --refresh ]] && read -r -p 'Upgrade failed!' && exit 1
+if ! sudo dnf upgrade --refresh
+then
+	read -r -p 'Upgrade failed'
+	exit 1
+fi
 echo
-read -r -p 'Press Enter to continue'
+#read -r -p 'Press Enter to continue'
 
 clear
 dnf needs-restarting
+[[ $? == 1 ]] && reboot
 echo
-read -r -p 'Do you want to reboot? (y/N) '
-[[ $REPLY == y ]] && reboot
+#read -r -p 'Do you want to reboot? (y/N) '
+#[[ $REPLY == y ]] && reboot
 echo
 read -r -p 'Press Enter to continue'
 
