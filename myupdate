@@ -5,7 +5,7 @@
 clear
 #sudo dnf upgrade --refresh 
 #[[ ! sudo dnf upgrade --refresh ]] && read -r -p 'Upgrade failed!' && exit 1
-if ! sudo dnf upgrade --refresh
+if ! sudo dnf upgrade --refresh --assumeyes
 then
 	read -r -p 'Upgrade failed'
 	exit 1
