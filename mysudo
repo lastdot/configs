@@ -1,2 +1,4 @@
+# /etc/sudoers.d
+
 myuser ALL=(ALL) NOPASSWD: /usr/bin/dnf upgrade --refresh --assumeyes
 
