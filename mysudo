@@ -1,4 +1,4 @@
-# /etc/sudoers.d
+# COPY not symlink to /etc/sudoers.d
 
 myuser ALL=(ALL) NOPASSWD: /usr/bin/dnf upgrade --refresh --assumeyes
 
